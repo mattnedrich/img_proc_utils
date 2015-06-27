@@ -15,7 +15,9 @@ def write_video_frames(video_path, output_path = None, convert_to_grayscale = Fa
             full_output_path = os.path.join(output_path, "frame_%d.jpg" % frame_count)
             cv2.imwrite(full_output_path, frame)
             frame_count += 1
-            print "Writing frame %d to %s \r" % (frame_count, output_path),
+#            print "Writing frame %d to %s \r" % (frame_count, output_path),
+            print_string = "Writing frame %d" % (frame_count)
+            sys.stdout.write('%s\r' % print_string)
             sys.stdout.flush()
         print "Wrote %d frames to %s" % (frame_count, output_path)
         return output_path
